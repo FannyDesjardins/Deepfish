@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl87mh7qsw6k8"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_k7gnr"]
+[ext_resource type="Texture2D" uid="uid://dtski7d0rig2w" path="res://Player/diver_test_100.png" id="2_nbk46"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i6usl"]
+radius = 13.0
+height = 46.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_k7gnr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_i6usl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="DiverTest100" type="Sprite2D" parent="."]
+position = Vector2(1, -5)
+texture = ExtResource("2_nbk46")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.455, 1.455)
