@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://rkrrix14w678"]
+[gd_scene load_steps=8 format=3 uid="uid://rkrrix14w678"]
 
-[ext_resource type="Texture2D" uid="uid://cuwht6edha5ew" path="res://Mobs/Giant_Isopod/Isopod1.png" id="1_8mdks"]
+[ext_resource type="Texture2D" uid="uid://dktqcufhj04mw" path="res://Mobs/Giant_Isopod/Iso_1.png" id="1_d6omr"]
+[ext_resource type="Texture2D" uid="uid://dos1xjh5nw4" path="res://Mobs/Giant_Isopod/Iso_2.png" id="2_lxqse"]
 
 [sub_resource type="GDScript" id="GDScript_b7dff"]
 script/source = "extends CharacterBody2D
@@ -78,7 +79,10 @@ func _on_hit_zone_body_exited(body):
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_8mdks")
+"texture": ExtResource("1_d6omr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lxqse")
 }],
 "loop": true,
 "name": &"Idle",

@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://r1pfmdmmvcfp"]
+[gd_scene load_steps=9 format=3 uid="uid://r1pfmdmmvcfp"]
 
 [ext_resource type="Script" path="res://Mobs/GulperEel/gulper_eel.gd" id="1_og4mr"]
-[ext_resource type="Texture2D" uid="uid://bwnnknq6nlrrc" path="res://Mobs/GulperEel/GulperEel1.png" id="2_0a5hn"]
+[ext_resource type="Texture2D" uid="uid://d4yuqqx1jru0" path="res://Mobs/GulperEel/F0.png" id="2_sdgx8"]
+[ext_resource type="Texture2D" uid="uid://d4iksyaccceca" path="res://Mobs/GulperEel/F1.png" id="3_2e6vo"]
+[ext_resource type="Texture2D" uid="uid://cej42p7ctl7lx" path="res://Mobs/GulperEel/F2.png" id="4_gy83u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sf76"]
 size = Vector2(374, 45)
@@ -16,7 +18,13 @@ size = Vector2(379, 65)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_0a5hn")
+"texture": ExtResource("2_sdgx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2e6vo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gy83u")
 }],
 "loop": true,
 "name": &"Idle",

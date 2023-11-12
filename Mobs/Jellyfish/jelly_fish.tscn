@@ -1,17 +1,17 @@
 [gd_scene load_steps=5 format=3 uid="uid://bik1pq0q7txe4"]
 
 [ext_resource type="Script" path="res://Mobs/Jellyfish/jelly_fish.gd" id="1_63vyp"]
-[ext_resource type="Texture2D" uid="uid://ckqofgdnrkjbv" path="res://Mobs/Giant_Isopod/jellyfish_1.png" id="2_683l7"]
-[ext_resource type="Texture2D" uid="uid://bg483hv1vb4d6" path="res://Mobs/Giant_Isopod/Jellyfish_2.png" id="3_utt8p"]
+[ext_resource type="Texture2D" uid="uid://dgpnqsthseyic" path="res://Mobs/Jellyfish/jellyfish_1.png" id="2_ib3de"]
+[ext_resource type="Texture2D" uid="uid://brvn4x5pkbbim" path="res://Mobs/Jellyfish/Jellyfish_2.png" id="3_hpalw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g5r4f"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_683l7")
+"texture": ExtResource("2_ib3de")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_utt8p")
+"texture": ExtResource("3_hpalw")
 }],
 "loop": true,
 "name": &"Idle",

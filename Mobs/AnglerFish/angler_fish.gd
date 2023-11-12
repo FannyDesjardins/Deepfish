@@ -72,6 +72,8 @@ func _on_player_detection_body_entered(body):
 func _on_Chase_Timer_timeout():
 	chaseTimerOn = false
 	chase = false
+	velocity.x = 0
+	velocity.y = 0
 	
 	idleTimer = Timer.new()
 	add_child(idleTimer)

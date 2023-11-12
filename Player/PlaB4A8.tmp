@@ -1,0 +1,233 @@
+[gd_scene load_steps=20 format=3 uid="uid://dl87mh7qsw6k8"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_k7gnr"]
+[ext_resource type="Shader" path="res://Player/Player.gdshader" id="2_df75j"]
+[ext_resource type="Texture2D" uid="uid://r7bho477jxk1" path="res://Player/Idle/diver idle 1 100.png" id="2_dtm5o"]
+[ext_resource type="Texture2D" uid="uid://b7g1ro72wuvfh" path="res://Player/Idle/diver idle 2 100.png" id="3_i0l1u"]
+[ext_resource type="Texture2D" uid="uid://djqb6kqmudrsg" path="res://Player/Jump/diver jump windup 100.png" id="4_fg0io"]
+[ext_resource type="Texture2D" uid="uid://b477yjxwmplpi" path="res://Player/Jump/diver falling 100.png" id="5_pw40o"]
+[ext_resource type="Texture2D" uid="uid://bgtjacuad822m" path="res://Player/Walk/diver walk 1 100.png" id="6_uh5xd"]
+[ext_resource type="Texture2D" uid="uid://wv50lviw2kn5" path="res://Player/Walk/diver walk 2 100.png" id="7_iivu0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dl6lq"]
+shader = ExtResource("2_df75j")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i6usl"]
+radius = 13.0
+height = 46.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2uf0s"]
+shader = ExtResource("2_df75j")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5jwlb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pw40o")
+}],
+"loop": true,
+"name": &"Falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dtm5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_i0l1u")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fg0io")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pw40o")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_uh5xd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_iivu0")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_jf40b"]
+resource_name = "Fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Falling"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_thcxk"]
+resource_name = "Hit"
+
+[sub_resource type="Animation" id="Animation_rcpb4"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_l511w"]
+resource_name = "Jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Jump"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_30s0a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_mn3pr"]
+resource_name = "Walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wknyg"]
+_data = {
+"Fall": SubResource("Animation_jf40b"),
+"Hit": SubResource("Animation_thcxk"),
+"Idle": SubResource("Animation_rcpb4"),
+"Jump": SubResource("Animation_l511w"),
+"RESET": SubResource("Animation_30s0a"),
+"Walk": SubResource("Animation_mn3pr")
+}
+
+[node name="Player" type="CharacterBody2D"]
+material = SubResource("ShaderMaterial_dl6lq")
+script = ExtResource("1_k7gnr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_i6usl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_2uf0s")
+position = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_5jwlb")
+animation = &"Walk"
+frame = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.455, 1.455)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+libraries = {
+"": SubResource("AnimationLibrary_wknyg")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]

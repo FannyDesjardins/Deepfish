@@ -10,7 +10,7 @@ var timer = null #timer for fish random behavior
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-	#get_node("AnimatedSprite2D").play("Idle")
+	get_node("AnimatedSprite2D").play("Idle")
 	
 	timer = Timer.new()
 	add_child(timer)
