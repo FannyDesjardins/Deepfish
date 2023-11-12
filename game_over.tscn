@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://ttsjrhjaq41l"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_d46ee"]
+
+[sub_resource type="GDScript" id="GDScript_xx02j"]
+script/source = "extends Label
+
+
+"
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_d46ee")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="GameOver" type="Label" parent="UI"]
+anchors_preset = -1
+anchor_right = 0.101389
+anchor_bottom = 0.134259
+offset_left = 240.0
+offset_top = 55.0
+offset_right = 385.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = SubResource("GDScript_xx02j")
+metadata/_edit_use_anchors_ = true
+
+[node name="Play" type="Button" parent="."]
+offset_left = 235.0
+offset_top = 217.0
+offset_right = 458.0
+offset_bottom = 355.0
+text = "Play"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 235.0
+offset_top = 424.0
+offset_right = 460.0
+offset_bottom = 561.0
+text = "Quit
+"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

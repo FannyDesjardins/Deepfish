@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://r1pfmdmmvcfp"]
+
+[ext_resource type="Script" path="res://Mobs/GulperEel/gulper_eel.gd" id="1_og4mr"]
+[ext_resource type="Texture2D" uid="uid://bwnnknq6nlrrc" path="res://Mobs/GulperEel/GulperEel1.png" id="2_0a5hn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sf76"]
+size = Vector2(374, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ndxg"]
+size = Vector2(1825, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p680t"]
+size = Vector2(379, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fufxs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0a5hn")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="GulperEel" type="CharacterBody2D"]
+script = ExtResource("1_og4mr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, -3.5)
+shape = SubResource("RectangleShape2D_6sf76")
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+position = Vector2(2, -5)
+shape = SubResource("RectangleShape2D_0ndxg")
+
+[node name="HitZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone"]
+position = Vector2(-9.5, -8.5)
+shape = SubResource("RectangleShape2D_p680t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-13, -1)
+sprite_frames = SubResource("SpriteFrames_fufxs")
+animation = &"Idle"
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="HitZone" to="." method="_on_hit_zone_body_entered"]
+[connection signal="body_exited" from="HitZone" to="." method="_on_hit_zone_body_exited"]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2bo80vvupmj3"]
+
+[ext_resource type="Script" path="res://Mobs/AnglerFish/angler_fish.gd" id="1_1tig4"]
+[ext_resource type="Texture2D" uid="uid://fdfyvvg1ej63" path="res://Mobs/AnglerFish/AnglerFish1.png" id="2_gagtj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_roirv"]
+size = Vector2(85, 61)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dcjtj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gagtj")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfsls"]
+size = Vector2(166, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytvmt"]
+size = Vector2(89, 64)
+
+[node name="AnglerFish" type="CharacterBody2D"]
+script = ExtResource("1_1tig4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.5, 10.5)
+shape = SubResource("RectangleShape2D_roirv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dcjtj")
+animation = &"Idle"
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+position = Vector2(-35, 9.5)
+shape = SubResource("RectangleShape2D_yfsls")
+
+[node name="HitZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone"]
+position = Vector2(5.5, 10)
+shape = SubResource("RectangleShape2D_ytvmt")
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="HitZone" to="." method="_on_hit_zone_body_entered"]
+[connection signal="body_exited" from="HitZone" to="." method="_on_hit_zone_body_exited"]

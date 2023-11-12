@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://r1pfmdmmvcfp"]
+
+[ext_resource type="Script" path="res://Mobs/GulperEel/gulper_eel.gd" id="1_og4mr"]
+[ext_resource type="Texture2D" uid="uid://ckqofgdnrkjbv" path="res://Mobs/Giant_Isopod/jellyfish_1.png" id="2_imbgs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8whf"]
+size = Vector2(12, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ndxg"]
+size = Vector2(511, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p1en2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fufxs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_imbgs")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="GulperEel" type="CharacterBody2D"]
+script = ExtResource("1_og4mr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(43, 0)
+shape = SubResource("RectangleShape2D_y8whf")
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+position = Vector2(43, 0)
+shape = SubResource("RectangleShape2D_0ndxg")
+
+[node name="HitZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone"]
+position = Vector2(43, 0)
+shape = SubResource("CircleShape2D_p1en2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fufxs")
+animation = &"Idle"

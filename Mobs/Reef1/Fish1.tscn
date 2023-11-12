@@ -3,10 +3,9 @@
 [ext_resource type="Script" path="res://Mobs/Reef1/Fish1.gd" id="1_sf7f8"]
 [ext_resource type="Texture2D" uid="uid://bx3ogk4p0s4ww" path="res://Mobs/Reef1/Reef1_0.png" id="2_1aklc"]
 [ext_resource type="Texture2D" uid="uid://dgbb436ror7wy" path="res://Mobs/Reef1/Reef1_1.png" id="3_e1je6"]
-[ext_resource type="Texture2D" uid="uid://c6linei871k3j" path="res://Mobs/fish_placeholder.png" id="4_8vw26"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hvswu"]
-radius = 17.0
+radius = 15.0
 height = 34.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bqox2"]
@@ -24,9 +23,12 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7dnni"]
-radius = 67.0075
+radius = 144.0
 
-[node name="Fish1" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_x5fu3"]
+radius = 17.0
+
+[node name="ReefFish" type="CharacterBody2D"]
 script = ExtResource("1_sf7f8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -34,20 +36,24 @@ position = Vector2(51, 15)
 shape = SubResource("CapsuleShape2D_hvswu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(51, 17)
+position = Vector2(51, 15)
 sprite_frames = SubResource("SpriteFrames_bqox2")
 animation = &"Idle"
-
-[node name="FishPlaceholder" type="Sprite2D" parent="."]
-position = Vector2(48, 17)
-texture = ExtResource("4_8vw26")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
 position = Vector2(19, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
-position = Vector2(32, 12)
+position = Vector2(32, 11)
 shape = SubResource("CircleShape2D_7dnni")
+
+[node name="HitZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone"]
+position = Vector2(51, 15)
+shape = SubResource("CircleShape2D_x5fu3")
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="HitZone" to="." method="_on_hit_zone_body_entered"]
+[connection signal="body_exited" from="HitZone" to="." method="_on_hit_zone_body_exited"]
