@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://r1pfmdmmvcfp"]
+[gd_scene load_steps=10 format=3 uid="uid://r1pfmdmmvcfp"]
 
 [ext_resource type="Script" path="res://Mobs/GulperEel/gulper_eel.gd" id="1_og4mr"]
 [ext_resource type="Texture2D" uid="uid://d4yuqqx1jru0" path="res://Mobs/GulperEel/F0.png" id="2_sdgx8"]
 [ext_resource type="Texture2D" uid="uid://d4iksyaccceca" path="res://Mobs/GulperEel/F1.png" id="3_2e6vo"]
 [ext_resource type="Texture2D" uid="uid://cej42p7ctl7lx" path="res://Mobs/GulperEel/F2.png" id="4_gy83u"]
+[ext_resource type="AudioStream" uid="uid://d3o0rbj73ypj6" path="res://didgeridoo-monster-roar-6962.mp3" id="5_blbot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sf76"]
 size = Vector2(374, 45)
@@ -54,6 +55,10 @@ shape = SubResource("RectangleShape2D_p680t")
 position = Vector2(-13, -1)
 sprite_frames = SubResource("SpriteFrames_fufxs")
 animation = &"Idle"
+
+[node name="gulperdetect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_blbot")
+pitch_scale = 0.5
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

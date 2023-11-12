@@ -88,6 +88,7 @@ func _on_Idle_Timer_timeout():
 
 func _on_player_detection_body_exited(body):
 	if body.name == "Player":
+		$anglerdetect.play()
 		chase = false;
 
 

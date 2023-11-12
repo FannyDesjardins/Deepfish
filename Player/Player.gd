@@ -92,9 +92,9 @@ func _on_immune_timeout():
 func _get_hurt():
 		immune = true
 		health-=1
+		$roblox_oof.play()
 		if health ==0:
 			get_tree().change_scene_to_file("res://game_over.tscn")
-			
 		timerImmunity = Timer.new()
 		add_child(timerImmunity)
 		timerImmunity.connect("timeout", self._on_immune_timeout)
@@ -116,6 +116,7 @@ func _on_FlashTimer_timeout():
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
 		cam.set_position(Vector2(0,-250))
+		$eldritch.play()
 		self.hide()
 		$CollisionShape2D.disabled = true
 		#cam.current = false

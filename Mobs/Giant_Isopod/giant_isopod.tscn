@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://rkrrix14w678"]
+[gd_scene load_steps=9 format=3 uid="uid://rkrrix14w678"]
 
 [ext_resource type="Texture2D" uid="uid://dktqcufhj04mw" path="res://Mobs/Giant_Isopod/Iso_1.png" id="1_d6omr"]
 [ext_resource type="Texture2D" uid="uid://dos1xjh5nw4" path="res://Mobs/Giant_Isopod/Iso_2.png" id="2_lxqse"]
+[ext_resource type="AudioStream" uid="uid://cioproib2y3o" path="res://deep-monster-growl-86780.mp3" id="3_840im"]
 
 [sub_resource type="GDScript" id="GDScript_b7dff"]
 script/source = "extends CharacterBody2D
@@ -54,6 +55,7 @@ func _on_Timer_timeout():
 
 func _on_player_detection_body_entered(body):
 	if body.name == \"Player\":
+		$isopoddetect.play()
 		chase = true;
 
 
@@ -122,6 +124,10 @@ shape = SubResource("RectangleShape2D_80fg3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.5, -106.75)
 shape = SubResource("RectangleShape2D_civqe")
+
+[node name="isopoddetect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_840im")
+pitch_scale = 0.65
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

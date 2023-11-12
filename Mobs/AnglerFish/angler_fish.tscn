@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2bo80vvupmj3"]
+[gd_scene load_steps=9 format=3 uid="uid://b2bo80vvupmj3"]
 
 [ext_resource type="Script" path="res://Mobs/AnglerFish/angler_fish.gd" id="1_1tig4"]
 [ext_resource type="Texture2D" uid="uid://7cu12rgyid2a" path="res://Mobs/AnglerFish/Angler_1.png" id="2_1lpcy"]
 [ext_resource type="Texture2D" uid="uid://dkesruc0plhla" path="res://Mobs/AnglerFish/Angler_2.png" id="3_3qka7"]
+[ext_resource type="AudioStream" uid="uid://c05ewb5ocae8o" path="res://demonic-woman-scream-6333.mp3" id="4_s1uiw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_roirv"]
 size = Vector2(85, 61)
@@ -49,6 +50,10 @@ shape = SubResource("RectangleShape2D_yfsls")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone"]
 position = Vector2(5.5, 10)
 shape = SubResource("RectangleShape2D_ytvmt")
+
+[node name="anglerdetect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_s1uiw")
+volume_db = -5.0
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

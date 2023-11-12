@@ -56,6 +56,7 @@ func _on_hit_zone_body_entered(body):
 
 func _on_player_detection_body_entered(body):
 	if body.name == "Player":
+		$gulperdetect.play()
 		chase = true
 
 

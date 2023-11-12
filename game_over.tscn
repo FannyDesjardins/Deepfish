@@ -17,10 +17,10 @@ script = ExtResource("1_d46ee")
 anchors_preset = -1
 anchor_right = 0.101389
 anchor_bottom = 0.134259
-offset_left = 240.0
-offset_top = 55.0
-offset_right = 385.0
-offset_bottom = 115.0
+offset_left = 712.0
+offset_top = 146.0
+offset_right = 857.0
+offset_bottom = 206.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Game Over"
@@ -30,17 +30,17 @@ script = SubResource("GDScript_xx02j")
 metadata/_edit_use_anchors_ = true
 
 [node name="Play" type="Button" parent="."]
-offset_left = 235.0
-offset_top = 217.0
-offset_right = 458.0
-offset_bottom = 355.0
+offset_left = 786.0
+offset_top = 342.0
+offset_right = 1009.0
+offset_bottom = 480.0
 text = "Play"
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 235.0
-offset_top = 424.0
-offset_right = 460.0
-offset_bottom = 561.0
+offset_left = 786.0
+offset_top = 549.0
+offset_right = 1011.0
+offset_bottom = 686.0
 text = "Quit
 "
 
