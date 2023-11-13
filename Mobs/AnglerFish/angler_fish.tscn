@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://c05ewb5ocae8o" path="res://demonic-woman-scream-6333.mp3" id="4_s1uiw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_roirv"]
-size = Vector2(85, 61)
+size = Vector2(93, 81)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dcjtj"]
 animations = [{
@@ -23,16 +23,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfsls"]
-size = Vector2(166, 65)
+size = Vector2(277, 106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytvmt"]
-size = Vector2(89, 64)
+size = Vector2(100, 86)
 
 [node name="AnglerFish" type="CharacterBody2D"]
 script = ExtResource("1_1tig4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5.5, 10.5)
+position = Vector2(15.5, 20.5)
 shape = SubResource("RectangleShape2D_roirv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -42,13 +42,13 @@ animation = &"Idle"
 [node name="PlayerDetection" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
-position = Vector2(-35, 9.5)
+position = Vector2(-74.5, 29)
 shape = SubResource("RectangleShape2D_yfsls")
 
 [node name="HitZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone"]
-position = Vector2(5.5, 10)
+position = Vector2(17, 19)
 shape = SubResource("RectangleShape2D_ytvmt")
 
 [node name="anglerdetect" type="AudioStreamPlayer2D" parent="."]

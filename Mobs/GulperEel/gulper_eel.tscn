@@ -13,7 +13,7 @@ size = Vector2(374, 45)
 size = Vector2(1825, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p680t"]
-size = Vector2(379, 65)
+size = Vector2(379, 62)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fufxs"]
 animations = [{
@@ -48,7 +48,7 @@ shape = SubResource("RectangleShape2D_0ndxg")
 [node name="HitZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone"]
-position = Vector2(-9.5, -8.5)
+position = Vector2(-9.5, -7)
 shape = SubResource("RectangleShape2D_p680t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

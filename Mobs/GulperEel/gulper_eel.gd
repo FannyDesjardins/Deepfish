@@ -1,13 +1,12 @@
 extends CharacterBody2D
 
-var SPEED= 100
+var SPEED= 150
 var player
 var chase = false
 var chaseDirection
 var continueChase = false
 
 var timer = null #timer for fish random behavior
-#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	get_node("AnimatedSprite2D").play("Idle")

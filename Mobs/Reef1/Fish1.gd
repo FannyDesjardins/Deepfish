@@ -21,7 +21,6 @@ func _ready():
 func _physics_process(delta): # Called every frame. 'delta' is the elapsed time since the previous frame.
 		
 	if chase == true:
-		#get_node("AnimatedSprite2D").play("Jump")
 		player = get_node("../../Player/Player")
 		var direction = (player.position - self.position).normalized()
 		if direction.x > 0:
@@ -29,8 +28,7 @@ func _physics_process(delta): # Called every frame. 'delta' is the elapsed time 
 		else: 
 			get_node("AnimatedSprite2D").flip_h = true;
 		velocity.x = direction.x * -SPEED
-	#else:
-		#velocity.x = 0
+
 	move_and_slide()
 
 

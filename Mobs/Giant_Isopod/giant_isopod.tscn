@@ -37,8 +37,7 @@ func _physics_process(delta): # Called every frame. 'delta' is the elapsed time 
 		else: 
 			get_node(\"AnimatedSprite2D\").flip_h = false;
 		velocity.x = direction.x * SPEED
-	#else:
-		#velocity.x = 0
+
 		
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -95,10 +94,10 @@ animations = [{
 size = Vector2(842, 80.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80fg3"]
-size = Vector2(257, 99)
+size = Vector2(236, 77)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_civqe"]
-size = Vector2(217, 61.5)
+size = Vector2(224, 68)
 
 [node name="GiantIsopod" type="CharacterBody2D"]
 position = Vector2(7, 103)
@@ -118,11 +117,11 @@ shape = SubResource("RectangleShape2D_54lu0")
 [node name="HitZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone"]
-position = Vector2(-8.5, -104.5)
+position = Vector2(-9, -110.5)
 shape = SubResource("RectangleShape2D_80fg3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.5, -106.75)
+position = Vector2(-7, -110)
 shape = SubResource("RectangleShape2D_civqe")
 
 [node name="isopoddetect" type="AudioStreamPlayer2D" parent="."]

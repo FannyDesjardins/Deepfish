@@ -8,7 +8,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_so5s1"]
 radius = 14.0
-height = 46.0
+height = 34.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1wm5w"]
 animations = [{

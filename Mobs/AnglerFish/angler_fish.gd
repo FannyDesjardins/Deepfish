@@ -33,9 +33,7 @@ func _physics_process(delta): # Called every frame. 'delta' is the elapsed time 
 			get_node("AnimatedSprite2D").flip_h = false;
 		velocity.x = direction.x * SPEED
 		velocity.y = direction.y * SPEED
-	#else:
-	#	velocity.x = 0
-	#	velocity.y = 0
+
 	move_and_slide()
 
 func _on_Timer_timeout():
@@ -58,7 +56,7 @@ func _on_player_detection_body_entered(body):
 	if body.name == "Player":
 		if chaseTimerOn == false && idleTimerOn == false:
 			chase = true;
-			
+			$anglerdetect.play()
 			chaseTimer = Timer.new()
 			add_child(chaseTimer)
 			chaseTimer.connect("timeout", self._on_Chase_Timer_timeout)
@@ -88,14 +86,13 @@ func _on_Idle_Timer_timeout():
 
 func _on_player_detection_body_exited(body):
 	if body.name == "Player":
-		$anglerdetect.play()
 		chase = false;
 
 
 func _on_hit_zone_body_entered(body):
 	if body.name == "Player" && get_node("../../Player/Player").immune == false:
 		get_node("../../Player/Player").immune = true
-		get_node("../../Player/Player").inHitZone = false
+		get_node("../../Player/Player").inHitZone = true
 
 
 func _on_hit_zone_body_exited(body):

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var health = 3
+var health = "♥♥♥"
 var immune = false
 
 var timerImmunity
@@ -14,15 +14,13 @@ var inHitZone = false
 const SPEED = 150.0 #control speed moving left right
 const JUMP_VELOCITY = -200.0
 
-#@onready var my_global = get_node("/root/global")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var anim = get_node("AnimationPlayer")
 @onready var cam = get_node("Camera2D")
 
-#func _ready():
-#	player_vars.set_reachedBottom(false)
+
 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -87,18 +85,21 @@ func _on_immune_timeout():
 	if inHitZone == true:
 		_get_hurt()
 	
-	#timerHitCounter = 0
 
 func _get_hurt():
 		immune = true
-		health-=1
-		$roblox_oof.play()
-		if health ==0:
+		if health == "♥":
 			get_tree().change_scene_to_file("res://game_over.tscn")
+		if health =="♥♥":
+			health = "♥"
+		if health == "♥♥♥":
+			health = "♥♥"
+		$roblox_oof.play()
+
 		timerImmunity = Timer.new()
 		add_child(timerImmunity)
 		timerImmunity.connect("timeout", self._on_immune_timeout)
-		timerImmunity.set_wait_time(2)
+		timerImmunity.set_wait_time(2.05)
 		timerImmunity.set_one_shot(true) # false if it loops
 		timerImmunity.start()
 		timerImmunityStarted = true
@@ -116,10 +117,9 @@ func _on_FlashTimer_timeout():
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
 		cam.set_position(Vector2(0,-250))
-		$eldritch.play()
+		#$eldritch.play()
 		self.hide()
-		$CollisionShape2D.disabled = true
-		#cam.current = false
+		#$CollisionShape2D.disabled = true
 		
 		my_global.set_reachedBottom(true)
 		

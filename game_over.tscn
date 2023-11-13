@@ -1,48 +1,40 @@
 [gd_scene load_steps=3 format=3 uid="uid://ttsjrhjaq41l"]
 
 [ext_resource type="Script" path="res://game_over.gd" id="1_d46ee"]
-
-[sub_resource type="GDScript" id="GDScript_xx02j"]
-script/source = "extends Label
-
-
-"
+[ext_resource type="Texture2D" uid="uid://cslbuus5rs2p3" path="res://gameoverSCreen.png" id="2_yavbm"]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_d46ee")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="GameOver" type="Label" parent="UI"]
-anchors_preset = -1
-anchor_right = 0.101389
-anchor_bottom = 0.134259
-offset_left = 712.0
-offset_top = 146.0
-offset_right = 857.0
-offset_bottom = 206.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "Game Over"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = SubResource("GDScript_xx02j")
-metadata/_edit_use_anchors_ = true
-
 [node name="Play" type="Button" parent="."]
-offset_left = 786.0
-offset_top = 342.0
-offset_right = 1009.0
-offset_bottom = 480.0
+z_index = 1
+offset_left = 543.0
+offset_top = 769.0
+offset_right = 766.0
+offset_bottom = 907.0
 text = "Play"
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 786.0
-offset_top = 549.0
-offset_right = 1011.0
-offset_bottom = 686.0
+z_index = 1
+offset_left = 1042.0
+offset_top = 771.0
+offset_right = 1265.0
+offset_bottom = 906.0
 text = "Quit
 "
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="GameoverSCreen" type="Sprite2D" parent="ParallaxBackground"]
+z_index = -2
+position = Vector2(899, 495.5)
+scale = Vector2(4.17757, 3.91016)
+texture = ExtResource("2_yavbm")
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
